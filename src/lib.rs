@@ -19,7 +19,11 @@ impl<T> State<T>
         }
     }
 
-    fn add(input: &Input<T>) {
+    fn add(self: &mut Self, input: &Input<T>) {
+        // copy from the input to a w buffer.
+        for (i, item) in input.iter().enumerate() {
+            self.w[i] = *item;
+        }
     }
 }
 
